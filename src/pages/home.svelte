@@ -14,7 +14,7 @@
   <Toolbar bottom>
     <Button onClick="{openUrlModal}">Change Src</Button>
     <Button onClick="{()=>window.dispatchEvent(new Event('resize'))}">Rescale</Button>
-    <Button href="https://cors-anywhere.herokuapp.com/">Enable</Button>
+    <Button external href="https://cors-anywhere.herokuapp.com/">Enable</Button>
   </Toolbar>
   <!-- Page content -->
   <Block inset>
