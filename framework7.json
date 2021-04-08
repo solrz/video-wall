@@ -1,0 +1,26 @@
+{
+  "cwd": "/Users/kjc/WebstormProjects/video-wall",
+  "type": [
+    "web"
+  ],
+  "name": "video-wall",
+  "framework": "svelte",
+  "template": "split-view",
+  "cssPreProcessor": "stylus",
+  "bundler": "webpack",
+  "webpack": {
+    "developmentSourceMap": true,
+    "productionSourceMap": true,
+    "hashAssets": false,
+    "preserveAssetsPaths": false,
+    "inlineAssets": true
+  },
+  "theming": {
+    "customColor": false,
+    "color": "#007aff",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": false
+  },
+  "customBuild": false
+}
