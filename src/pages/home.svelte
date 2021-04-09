@@ -14,6 +14,7 @@
   <Toolbar bottom>
     <Button onClick="{openUrlModal}">Change Src</Button>
     <Button onClick="{()=>window.dispatchEvent(new Event('resize'))}">Rescale</Button>
+    <Button onClick="{changePlaySpeed}">Boost</Button>
     <Button external href="https://cors-anywhere.herokuapp.com/">Enable</Button>
   </Toolbar>
   <!-- Page content -->
@@ -22,7 +23,7 @@
       {#each videos.slice(0,50) as v}
 <!--        <p>{v.gsx$id.$t}</p>-->
 <!--          <img style="width: 49%" src="https://drive.google.com/a/nctu.co/thumbnail?id={v.gsx$id.$t}" class="item"/>-->
-        <video loop controls playsinline  style="width: 49%" poster='https://drive.google.com/a/nctu.co/thumbnail?id={v.gsx$id.$t}' class="item">
+        <video playbackRates="{[1,1.2,1.5,2]}" preload="none" controls playsinline  style="width: 49%" poster='https://drive.google.com/a/nctu.co/thumbnail?id={v.gsx$id.$t}' class="item">
           <source src="https://drive.google.com/uc?export=download&id={v.gsx$id.$t}" type="video/mp4">
 <!--          <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4">-->
         </video>
@@ -52,6 +53,13 @@
     } from 'framework7-svelte';
   let imgs = '12ejio21jeoi21je1jejioio21jeio21jrdioj12r'
   let videos = []
+    let currentPlaybackSpeed = 1
+    let playbackRates = [1,1.2,1.5,2]
+    function changePlaySpeed(){
+        let i = playbackRates.indexOf(currentPlaybackSpeed) + 1
+        currentPlaybackSpeed = playbackRates[i%playbackRates.length]
+        document.querySelectorAll('video').forEach(v=>v.playbackRate = currentPlaybackSpeed)
+    }
   function waterfall(container){
       if(typeof(container) === 'string')
           container = document.querySelector(container);
